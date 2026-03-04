@@ -1,4 +1,7 @@
-# IntuneWinAppUtil v1.8.7
+# IntuneWinAppUtil
+
+Download latest version from Releases:       
+https://github.com/intutil/IntuneWinAppUtil/releases/tag/v1.8.7
 
 ## Introduction
 
@@ -18,12 +21,8 @@ Before using **intunewinapputil**, prepare a clean packaging workstation and kee
 
 From a platform standpoint, the Microsoft Win32 Content Prep Tool requires **.NET Framework 4.7.2** on the machine where you run it.
 
-A key detail that impacts results: **everything inside the chosen source folder is included** in the generated package. Keep that folder minimal—only the files required for install/uninstall (installers, transforms, scripts, supporting files). This avoids larger-than-needed packages and reduces the chance of deploying unintended content.
+A key detail that impacts results: **everything inside the chosen source folder is included** in the generated package. Keep that folder minimal—only the files required for install/uninstall (installers, transforms, scripts, supporting files). This avoids larger-than-needed packages and reduces the chance of deploying unintended content
 
 ## Packaging behavior and operational notes
 
-intunewinapputil can be used interactively or via command line parameters such as **-c** (source folder), **-s** (setup file), **-o** (output folder), and commonly **-q** for quiet mode. The “catalog folder” prompt/parameter is **optional** and is typically not required for standard Win32 app packaging.
-
-To avoid packaging issues, keep file paths short. Windows has well-known path length limits (commonly referred to as **MAX_PATH, around 260 characters** in many Win32 contexts). Highly nested source directories can cause packaging failures or result in missing files during processing. If path-related errors occur, moving the source files to a shorter path often resolves the issue.
-
-Also remember that **the `.intunewin` file only acts as a package container**. In Intune, you still need to configure the installation and uninstallation commands, detection rules, and expected return codes. These configurations should align with how the original to ensure accurate installation reporting and reliable upgrade behavior.
+intunewinapputil can be used interactively or via command line parameters such as **-c** (source folder), **-s** (setup file), **-o** (output folder), and commonly **-q** for quiet mode. The “catalog folder” prompt/parameter is **optional** and is typically not required for standard Win32 app packaging
